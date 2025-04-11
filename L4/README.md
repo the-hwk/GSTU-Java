@@ -248,7 +248,7 @@ public class DbContext {
     private final EntityManager em;  
   
     private DbContext() {
-	    // указываем название конфигурации JPA  
+        // указываем название конфигурации JPA  
         emf = Persistence.createEntityManagerFactory("mysql-persistence-unit");  
         em = emf.createEntityManager();  
     }  
@@ -501,27 +501,27 @@ public class GroupDto {
 
 Задачей сервисов является инкапсуляция бизнес-логики приложения. Помимо передачи данных между контроллерами и слоем доступа к данным, в них может быть реализована валидация, подготовка данных и вызов внешних *API*.
 
-Пример метода дя удаления группы по `id` в классе-сервисе: 
+Пример метода для удаления группы по `id` в классе-сервисе: 
 
 ```Java
 public class GroupService {  
     // ...
     
     public boolean remove(int id) {
-	    // Перед удалением проверяем есть ли
-	    // вообще запись с указанным id
+	// Перед удалением проверяем есть ли
+	// вообще запись с указанным id
         Group group = dao.getById(id);
   
         if (group != null) {
-	        // если она есть, то удаляем ее
+	    // если она есть, то удаляем ее
             dao.remove(group);  
             return true;  
         }
   
         return false;  
     }
-    
-	// ...
+
+    // ...
 }
 ```
 
